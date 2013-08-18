@@ -1,0 +1,17 @@
+if ((typeof(syntax_objects$SigId$)) == "undefined") {syntax_objects$SigId$ = {};
+};
+(function(){syntax_objects$SigId$.eq_sigid$100 = function(v$102,v$103){switch (v$103[0]) { case 0: {return v$102[1] == v$103[1];
+ break; }default: {return false;
+} };
+};
+syntax_objects$SigId$.mk_SigId$49 = function(v$50){return [0,v$50];
+};
+syntax_objects$SigId$.pr_SigId$51 = function(v$54){return v$54[1];
+};
+syntax_objects$SigId$.s$j$59 = function(v$109,v$110){return v$109[1] < v$110[1];
+};
+syntax_objects$SigId$.pu$68 = pickle$pickle$.convert$2333([function(v$69){return [0,v$69];
+},function(v$72){return v$72[1];
+}],pickle$pickle$.string$900);
+return 0;
+})();

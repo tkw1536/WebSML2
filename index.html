@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>WebSML2</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Basic Deps -->
+		<script type="text/javascript" src="libs/jquery/jquery.js"></script>
+		<script type="text/javascript" src="libs/jquery/jquery.center.js"></script>
+		<script type="text/javascript" src="libs/jquery/jquery.nicescroll.min.js"></script>
+
+		<script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+		<link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="libs/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+		<!-- Main Scripts-->
+		<script type="text/javascript" src="main/loader.js"></script>
+		<script type="text/javascript" src="main/main.js"></script>
+
+		<!-- CSS -->
+		<link href="main/main.css" rel="stylesheet">
+
+	</head>
+	<body>
+		<div id="msgbox" class="container">
+			<div class="hero-unit">
+		        <h1>WebSML2</h1>
+		        <h2>Running SML in your browser. </h2>
+		        <div class="progress ">
+					<div class="bar"></div>
+				</div>
+				<p id="msgline1"></p>
+		        <p id="msgline2"></p>
+		    </div>
+	    </div>
+
+
+
+	    <div id="about" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+				<h3 id="aboutLabel">WebSML2</h3>
+			</div>
+			<div class="modal-body">
+				<h4>Running SML in your browser</h4>
+				<p>
+					WebSML2 is an application which allows you to run SML from your web browser. 
+
+					It uses the following libraries: 
+					<ul>
+						<li>
+							<a href="http://www.smlserver.org/smltojs/" target="_blank">SMLtoJs</a> 4.3.5
+						</li>
+						<li>
+							<a href="https://github.com/kpj/smlObfuscator" target="_blank">smlObfuscator</a>
+						</li>
+						<li>
+							<a href="http://jquery.com/" target="_blank">jQuery</a> 1.10.2
+						</li>
+						<li>
+							<a href="http://getbootstrap.com/2.3.2/" target="_blank">Bootstrap</a> 2.3.2
+						</li>
+						<li>
+							<a href="http://areaaperta.com/nicescroll" target="_blank">jquery.nicescroll</a> 3.5.1
+						</li>
+					</ul>
+				</p>
+			</div>
+			<div class="modal-footer">
+					<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			</div>
+		</div>
+
+		<div id="compressdialog" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+				<h3 id="compressdialogLabel">Compress</h3>
+			</div>
+			<div class="modal-body">
+					<form>
+						<textarea id="compressed" rows="8"></textarea>
+						<label class="checkbox">
+							<input type="checkbox" id="remove_comments" checked="checked">remove comments
+						</label>
+						<label class="checkbox">
+							<input type="checkbox" id="simple_optimize" checked="checked">Enable simple optimisations
+						</label>
+						<label class="checkbox">
+							<input type="checkbox" id="remove_lines">remove line breaks
+						</label>
+						<label class="checkbox">
+							<input type="checkbox" id="add_garbage">random comments
+						</label>
+						Variable renamer: <select id="replacer">
+						  <option value="static">None</option>
+						  <option value="numerical">Numerical</option>
+						  <option selected="selected" value="alphanumerical">Alpha-Numeric</option>
+						  <option value="random">Obfuscator</option>
+						</select> <br />
+						Exceptions: <input type="value" value="" id="ignore_funcs" >
+
+					</form>
+			</div>
+			<div class="modal-footer">
+					<button class="btn btn-primary" id="compress_close">Compress &amp; Save</button>
+					<button class="btn compress" id="compress_only">Compress</button>
+					<button class="btn" id="restore_code">Restore</button>
+					<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancel</button>
+			</div>
+		</div>
+
+	    <div class="container hidden" id="topbar">
+		    <div class="navbar">
+				<div class="navbar-inner">
+					<span class="brand">WebSML2</span>
+					<ul class="nav">
+						<li>
+							<a href="#" id="run">
+								<span class="icon-play"></span>
+								Run Program
+							</a>
+						</li>
+						<li class="divider-vertical"></li>
+						<li>
+							<a href="#compressdialog" role="button" data-toggle="modal">
+								Compress
+							</a>
+						</li>
+						<li class="divider-vertical"></li>
+						<li>
+							<a href="#" id="clear">
+								Clear console
+							</a>
+						</li>
+						<li class="divider-vertical"></li>
+						<li>
+							<a href="#about" role="button" data-toggle="modal">
+								About
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="ui" class="container hidden">
+			
+			<div id="left">
+				<textarea id="code">
+fun loop (n,acc) : IntInf.int =
+  if n = 0 then acc
+  else loop(n-1,n*acc)
+
+fun fac n =
+  print ("fac(" ^ IntInf.toString n ^ ") = " ^
+         IntInf.toString (loop(n,1)) ^ "\n")
+
+val () = List.app fac [10,20,30,40]</textarea>
+			</div>
+			<div id="right">
+				<span class="label label-info">
+					Welcome to SMLC. 
+					Type your SML program on the left and click "Run Program"! 
+				</span><br>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+if ((typeof(compiler_objects$Lvars$$3)) == "undefined") {compiler_objects$Lvars$$3 = {};
+};
+(function(){compiler_objects$Lvars$$3.env_lvar$1756 = compiler_objects$Lvars$$1.new_named_lvar$56("env");
+compiler_objects$Lvars$$3.notused_lvar$1757 = compiler_objects$Lvars$$1.new_named_lvar$56("notused");
+compiler_objects$Lvars$$3.pu$1758 = pickle$pickle$.hashConsEq$2568(function(v$1825){var v$1826 = v$1825[0];
+var v$1827 = v$1825[1];
+var v$1828 = v$1826[2];
+var v$1829 = v$1827[2];
+var v$1830 = v$1828[0][1];
+var v$1831 = v$1829[0][1];
+return (v$1830[0] == v$1831[0])?(v$1830[1] == v$1831[1]):false;
+},pickle$pickle$.register$2551("Lvars",[compiler_objects$Lvars$$3.env_lvar$1756,[compiler_objects$Lvars$$3.notused_lvar$1757,null]],pickle$pickle$.newHash$2044(function(x$1835){return x$1835[2][0][1][0];
+},pickle$pickle$.convert$2333([function(v$1841){var v$1842 = v$1841[0];
+return [v$1842[2],v$1841[1],v$1842[0],v$1842[1],v$1841[2]];
+},function(v$1843){return [[v$1843[2],v$1843[3],v$1843[0]],v$1843[1],v$1843[4]];
+}],pickle$pickle$.tup3Gen0$2340(pickle$pickle$.tup3Gen0$2340(special_objects$Name$.pu$286,pickle$pickle$.string$900,pickle$pickle$.refOneGen$1273(pickle$pickle$.bool$723)),pickle$pickle$.refOneGen$1273(pickle$pickle$.bool$723),pickle$pickle$.refOneGen$1273(pickle$pickle$.int$720))))));
+return 0;
+})();

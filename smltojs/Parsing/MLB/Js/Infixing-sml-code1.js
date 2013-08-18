@@ -1,0 +1,15 @@
+if ((typeof(basics$Infixing$$1)) == "undefined") {basics$Infixing$$1 = {};
+};
+(function(){basics$Infixing$$1.impossible$53 = function(s$56){return tools$Crash$.impossible$50("Infixing." + s$56);
+};
+basics$Infixing$$1.s$hh$57 = function(v$105){return tools$Report$.s$hh$55(v$105[0],v$105[1]);
+};
+basics$Infixing$$1.en$Error$58 = new String("Error");
+basics$Infixing$$1.en$InfixStack_error$59 = new String("InfixStack_error");
+basics$Infixing$$1.error_report$60 = function(info$63,report$66){throw [basics$Infixing$$1.en$Error$58,tools$Report$.s$hh$55(basics$GrammarUtils$.reportPosition_from_info$1280(info$63),report$66)];
+};
+basics$Infixing$$1.error_string$67 = function(info$70,s$73){var report$102 = tools$Report$.line$51(s$73);
+throw [basics$Infixing$$1.en$Error$58,tools$Report$.s$hh$55(basics$GrammarUtils$.reportPosition_from_info$1280(info$70),report$102)];
+};
+return 0;
+})();

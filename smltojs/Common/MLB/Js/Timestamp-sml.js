@@ -1,0 +1,12 @@
+if ((typeof(tools$Timestamp$)) == "undefined") {tools$Timestamp$ = {};
+};
+(function(){var r$46 = [0];
+tools$Timestamp$.new$47 = function(v$49){(r$46[0] = (SmlPrims.chk_ovf_i32(r$46[0] + 1)),0);
+return r$46[0];
+};
+tools$Timestamp$.stamp2int$52 = function(i$55){return i$55;
+};
+tools$Timestamp$.print$56 = function(i$59){return basis$Int32$.toString$449(i$59);
+};
+return 0;
+})();
