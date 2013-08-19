@@ -1,21 +1,69 @@
-.progress .bar {
-    -webkit-transition: none;
-    -moz-transition: none;
-    -ms-transition: none;
-    -o-transition: none;
-    transition: none;
-}​
+/*
+    WebSML2 - Running SML online
+    Copyright (C) 2013  Tom Wiesing
 
-textarea:hover, 
-textarea:active, 
-textarea:focus{
-	outline:0px !important;
-	-webkit-appearance:none;
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License 
+    version 2 as published by the Free Software Foundation
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+
+/* jQuery UI fixes */
+.ui-widget{ font-size: 0.8em; }
+
+/* Message Box */
+#msgbox {
+	width: 600px;
+	height: 300px;
+	border: 1px solid black;
+	padding: 5px;
 }
 
 #msgline2 {
 	font-style: italic; 
 }
+
+#progressbar > span {
+	 position: absolute;
+	 width: 100%;
+	 text-align: center;
+	 line-height: 1.9em;
+}
+
+#progressbar {
+	position:relative;
+}
+
+/* Topbar */
+
+#topbar {
+	margin-top: 5px;
+	width: 80%; 
+	margin-right: auto;
+	margin-left: auto; 
+}
+
+#topbar > div {
+	padding: 4px;
+    display: inline-block;
+	width: 100%;
+}
+
+/* Compressed Dialog */
+#compressed {
+	width: 100%;
+}
+
+
+
 
 #ui {
 	position: relative;
@@ -29,6 +77,7 @@ html, body {
 	width: 100%;
 	height: 100%;
 	margin: 0px;
+	overflow: hidden; 
 }
 
 #left, #right {
@@ -57,12 +106,4 @@ html, body {
 	border-style: none; 
     border-color: Transparent; 
     overflow: auto;
-}
-
-#topbar {
-	height: 50px;
-}
-
-#compressed {
-	width: 500px; 
 }
