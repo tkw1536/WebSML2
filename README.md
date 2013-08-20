@@ -17,7 +17,6 @@ It uses the following libraries:
 # TODO
 
 * make a copy / save system
-* solve the main area design better
 * make tests in browsers and add a supported browsers page
 
 # License

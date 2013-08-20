@@ -174,7 +174,7 @@ jQuery(function($){
 
 	//bind resize hacks
 	$(window).resize(function(){
-			$("#ui").height($(window).height()-$("#topbar").height()-20); 
+			$(".left, .right").height($(window).height()-$(".top").height());
 
 			$("#compressdialog, #aboutdialog")
 			.dialog("option", "width", 0.8*$(window).width())

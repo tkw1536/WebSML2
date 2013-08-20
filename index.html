@@ -65,13 +65,15 @@
 
 
 	    <!-- Toolbar -->
-	    <div id="topbar">
-	    	<div class="ui-widget-header ui-corner-all">
-	    		<button id="runbtn">Run Program</button>
-	    		<button id="clearbtn">Clear</button>
-	    		<button id="compressbtn">Compress</button>
-	    		<button id="aboutbtn">About</button>
-	    	</div>
+	    <div class="top">
+		    <div id="topbar">
+		    	<div class="ui-widget-header ui-corner-all">
+		    		<button id="runbtn">Run Program</button>
+		    		<button id="clearbtn">Clear</button>
+		    		<button id="compressbtn">Compress</button>
+		    		<button id="aboutbtn">About</button>
+		    	</div>
+			</div>
 		</div>
 
 
@@ -81,6 +83,7 @@
 
 	    	WebSML2 is an application which allows you to run SML from your web browser. It is licensed under GPLv2. <br /><br />
 	    	<a href="https://github.com/tkw1536/WebSML2" target="_blank">View Source on GitHub</a>
+	    	<a href="LICENSE" target="_blank">View Full license text</a>
 	    	<br /><br />
 
 	    	It uses the following libraries: 
@@ -131,9 +134,9 @@
 
 		<!-- Main UI -->
 		<div id="ui">
-			<div id="left">
-				<textarea id="code">
-fun loop (n,acc) : IntInf.int =
+			<div class="left">
+				<div id="left" >
+<textarea id="code" cols="1" rows="1">fun loop (n,acc) : IntInf.int =
   if n = 0 then acc
   else loop(n-1,n*acc)
 
@@ -142,12 +145,15 @@ fun fac n =
          IntInf.toString (loop(n,1)) ^ "\n")
 
 val () = List.app fac [10,20,30,40]</textarea>
+				</div>
 			</div>
-			<div id="right">
-				<span class="label label-info">
-					Welcome to SMLC. 
-					Type your SML program on the left and click "Run Program"! 
-				</span><br>
+			<div class="right">
+				<div id="right">
+					<span class="label label-info">
+						Welcome to SMLC. 
+						Type your SML program on the left and click "Run Program"! 
+					</span><br>
+				</div>
 			</div>
 		</div>
 	</body>
