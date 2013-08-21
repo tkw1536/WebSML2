@@ -107,7 +107,6 @@ html, body {
 	background-color: #eeeeee;
 	height: 100%;
 	padding: 2px; 
-	margin: 2px; 
 	font-family: monospace;
 	margin: 1em 0px;
 }
@@ -127,12 +126,12 @@ html, body {
 .label {
 	font-weight: bold; 
 	color: white; 
-	height: 20px; 
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	padding: 2px; 
-	margin: 2px; 
+	margin: 2px;
+	padding: 1px;
+	display: inline-block;
 }
 
 .label-log {

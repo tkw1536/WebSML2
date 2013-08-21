@@ -18,6 +18,7 @@ It uses the following libraries:
 
 * make a copy / save system
 * make tests in browsers and add a supported browsers page
+* add line numbers
 
 # License
 Licensed under GPLv2. See the file LICENSE for full license text. 

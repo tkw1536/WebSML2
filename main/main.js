@@ -25,7 +25,11 @@ jQuery(function($){
 	compress, 
 	compress_only, 
 	compress_close, 
-	compress_restore; 
+	compress_restore, 
+	time_start, 
+	time_compile, 
+	time_finish, 
+	now; 
 
 	//set the progressbar
 	$("#progressbar").progressbar({value: false});
@@ -162,10 +166,14 @@ jQuery(function($){
 	$("#runbtn").click(function(){
 		output("Running new program").addClass("label label-new"); 
 
+		time_start = now(); 
+
 		Interpreter.run($("#code").val(), function(allText, state){
-			
+			time_finish = now(); 
+
+			var msg = "[ " + ((time_finish - time_compile) /  1000)+ "s ]";
 			if(state == 0){
-				output("Program finished").addClass("label label-finish"); 
+				output("Program finished "+ msg).addClass("label label-finish"); 
 			} else {
 				output("Program failed").addClass("label label-fail"); 
 			}
@@ -182,6 +190,10 @@ jQuery(function($){
 	}).resize(); 
 
 	
+	//now function
+	now = function(){
+		return (new Date()).getTime();
+	}
 
 
 	//start loading after showing the license text for 1 second
@@ -204,8 +216,14 @@ jQuery(function($){
 
 			//set the interpreter
 			Interpreter = window.Interpreter = new SMLC(); 
+
 			Interpreter.on("output", function(e, chunk, italic){
 				output(chunk, true);
+			});
+
+			Interpreter.on("compile", function(e, chunk, italic){
+				time_compile = now(); 
+				output("Program compiled [ "+((time_compile - time_start) / 1000)+ "s ]").addClass("label label-log"); 
 			});
 
 		});

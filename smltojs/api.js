@@ -58,6 +58,7 @@ var SMLC = root.SMLC = function(func){
 
 		var on_output = (typeof options.output == "function")?options.output:function(chunk){}; //Once there is some output
 		var on_finish = (typeof options.finish == "function")?options.finish:function(all_text, success){}; //Once we are ready 
+        var on_compile = (typeof options.compile == "function")?options.compile:function(){}; //Once we are ready 
 
 
         var result, exec_result, compiled; //cache for the result
@@ -78,6 +79,9 @@ var SMLC = root.SMLC = function(func){
 
         try {
             compiled = smltojs0$SmlToJsComp$$9.compile$4889(environment_reference, code); //compile the code
+
+            on_compile(); 
+            me.trigger("compile", []); 
 
             try {
                 exec_result = smltojs0$SmlToJsComp$$9.execute$4951(compiled[1]);
