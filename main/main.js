@@ -155,7 +155,7 @@ jQuery(function($){
 	$("#clearbtn").click(function(){
 		$("#right").empty(); 
 
-		output("Output cleared. ").addClass("label label-clear");
+		output("Output cleared. ").addClass("label label-log");
 	});
 
 	//the run button
