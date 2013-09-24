@@ -56,7 +56,15 @@ jQuery(function($){
      	}
 	});
 
-	$("#compressbtn, #aboutbtn, #clearbtn").button(); 
+	(new ZeroClipboard(
+		$("#copybtn"), {
+	  	moviePath: "/libs/ZeroClipboard/ZeroClipboard.swf"
+	}))
+	.on('dataRequested', function (client, args) {
+	  client.setText($("#code").val());
+	});
+
+	$("#compressbtn, #aboutbtn, #clearbtn, #copybtn").button(); 
 
 	//the compress button + dialog
 	$("#compressdialog").hide().dialog({

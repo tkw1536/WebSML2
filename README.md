@@ -13,10 +13,10 @@ It uses the following libraries:
 * [jQuery](http://jquery.com/) 1.10.2, licensed under MIT
 * [jQuery UI](http://jqueryui.com/) 1.10.3, licensed under MIT
 * [jquery.nicescroll](http://areaaperta.com/nicescroll) 3.5.1, licensed under MIT
+* [ZeroClipboard](https://github.com/zeroclipboard/ZeroClipboard) 1.1.7, licensed under MIT
 
 # TODO
 
-* make a copy / save system
 * make tests in browsers and add a supported browsers page
 * add line numbers
 
