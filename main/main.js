@@ -25,11 +25,13 @@ jQuery(function($){
 	compress, 
 	compress_only, 
 	compress_close, 
-	compress_restore, 
+	compress_restore,
+	lineNumberUpdate, 
 	time_start, 
 	time_compile, 
 	time_finish, 
-	now; 
+	now,
+	z; 
 
 	//set the progressbar
 	$("#progressbar").progressbar({value: false});
@@ -56,13 +58,43 @@ jQuery(function($){
      	}
 	});
 
-	(new ZeroClipboard(
+	z = (new ZeroClipboard(
 		$("#copybtn"), {
 	  	moviePath: "/libs/ZeroClipboard/ZeroClipboard.swf"
-	}))
-	.on('dataRequested', function (client, args) {
+	}));
+
+	z.on('dataRequested', function (client, args) {
 	  client.setText($("#code").val());
 	});
+
+
+	//No or wrong flash => remove button
+
+	z.on("noflash", function(){
+		$("#copybtn").remove(); 
+	});
+
+	z.on("wrongflash", function(){
+		$("#copybtn").remove(); 
+	});
+
+	//Style Fixes for Button
+	z.on("mouseover", function(){
+		$("#copybtn").addClass("ui-state-hover");
+	}); 
+
+	z.on("mousedown", function(){
+		$("#copybtn").addClass("ui-state-active");
+	}); 
+
+	z.on("mouseup", function(){
+		$("#copybtn").removeClass("ui-state-active");
+	}); 
+
+	z.on("mouseout", function(){
+		$("#copybtn").removeClass("ui-state-active ui-state-hover");
+	}); 
+
 
 	$("#compressbtn, #aboutbtn, #clearbtn, #copybtn").button(); 
 
@@ -190,12 +222,35 @@ jQuery(function($){
 
 	//bind resize hacks
 	$(window).resize(function(){
-			$(".left, .right").height($(window).height()-$(".top").height());
+			$(".left, .right, .leftlines, #lineno").height($(window).height()-$(".top").height() - 5);
 
 			$("#compressdialog, #aboutdialog")
 			.dialog("option", "width", 0.8*$(window).width())
 			.dialog("option", "height", 0.8*$(window).height());
 	}).resize(); 
+
+	//Make line numbers
+
+	lineNumberUpdate = function(){
+
+		var lineCount = $("#code").val().split("\n").length; 
+
+		var text = ""; 
+
+		for(var i=1;i<=lineCount;i++){
+			text += i.toString()+"\n"; 
+		}
+
+		$("#lineno").val(text); 
+
+		$("#lineno").scrollTop($("#code").scrollTop());
+	}
+
+	//register update handlers for textarea
+	$("#code").on("input propertychange", lineNumberUpdate);
+	$("#code").scroll(lineNumberUpdate)
+
+	lineNumberUpdate(); 
 
 	
 	//now function

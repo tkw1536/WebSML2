@@ -43,7 +43,7 @@
 }
 
 /* Main Layout */
-.top, .right, .left {
+.top, .right, .left, .leftlines {
     position: fixed; 
     width: 100%; 
     margin: 0px;
@@ -58,8 +58,15 @@
 
 .left {
     top: 50px; 
+    left: 4%; 
+    width: 46%; 
+    overflow: hidden; 
+}
+
+.leftlines {
+    top: 50px; 
     left: 0px; 
-    width: 50%; 
+    width: 4%; 
     overflow: hidden; 
 }
 
@@ -111,7 +118,7 @@ html, body {
 	margin: 1em 0px;
 }
 
-#code {
+#code, #lineno {
 	width:100%;
 	height:100%;
 	box-sizing: border-box;
@@ -119,6 +126,11 @@ html, body {
 	-webkit-box-sizing: border-box;
 	display: block;
 	border: 0;
+}
+
+#lineno {
+	overflow: hidden;
+	outline: none;
 }
 
 /* Labels */
@@ -148,4 +160,9 @@ html, body {
 
 .label-fail {
 	background-color: red; 
+}
+
+.label-line {
+	background-color: black; 
+	font-family: monospace;
 }
